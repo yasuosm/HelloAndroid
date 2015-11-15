@@ -7,29 +7,51 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
+    static final String TAG = "MainActivity";
     static final int PERMISSIONS_REQUEST_CALL_PHONE = 1;
+    static final int SECOND_ACTIVITY_RESULT = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Button button = (Button) findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 //        startSecondActivity();
 //        startActionView();
-        callPhone();
+//        callPhone();
+                getSecondActivityResult();
+            }
+        });
     }
 
-    public void startSecondActivity() {
-        Intent secondActivity = new Intent(MainActivity.this, SecondActivity.class);
-        startActivity(secondActivity);
+    public void getSecondActivityResult() {
+        Intent intent = new Intent(this, SecondActivity.class);
+        startActivityForResult(intent, SECOND_ACTIVITY_RESULT);
     }
 
-    public void startActionView() {
-        Intent actionView = new Intent(Intent.ACTION_VIEW);
-        startActivity(actionView);
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        switch (requestCode) {
+            case SECOND_ACTIVITY_RESULT: {
+                TextView textResult = (TextView) findViewById(R.id.textResult);
+                if (resultCode == RESULT_OK) {
+                    String message = intent.getStringExtra("message");
+                    textResult.setText("RESULT_OK " + message);
+                } else {
+                    textResult.setText("RESULT_CANCELED");
+                }
+            }
+        }
     }
 
     public void callPhone() {
@@ -64,5 +86,15 @@ public class MainActivity extends AppCompatActivity {
             // other 'case' lines to check for other
             // permissions this app might request
         }
+    }
+
+    public void startActionView() {
+        Intent actionView = new Intent(Intent.ACTION_VIEW);
+        startActivity(actionView);
+    }
+
+    public void startSecondActivity() {
+        Intent secondActivity = new Intent(this, SecondActivity.class);
+        startActivity(secondActivity);
     }
 }
