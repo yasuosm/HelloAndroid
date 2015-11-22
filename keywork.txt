@@ -1,2 +1,4 @@
 activity
   intent
+  intent-filter
+resources

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="button_normal_background">#FEEEEE</color>
+    <color name="button_hovered_background">#8DDDDD</color>
+    <color name="button_pressed_background">#0CCCCC</color>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
