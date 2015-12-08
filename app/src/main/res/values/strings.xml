@@ -4,7 +4,13 @@
     <string name="call_phone">Call Phone</string>
     <string name="get_second_activity_result">Get Second Activity Result</string>
     <string name="main_activity">Main Activity</string>
+    <string name="message">Message</string>
     <string name="second_activity">Second Activity</string>
+    <string name="send">Send</string>
     <string name="start_action_view">Start ACTION_VIEW</string>
     <string name="start_second_activity">Start Second Activity</string>
+    <string name="subject">Subject</string>
+    <string name="to">To</string>
+    <string name="reminder">Reminder</string>
+    <string name="done">Done</string>
 </resources>

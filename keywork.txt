@@ -1,4 +1,12 @@
-activity
-  intent
-  intent-filter
+app components
+|-intents
+|-intent filters
+'-activities
 resources
+user interface
+'-layouts
+  |-linear layout
+  |-relative layout
+  |-web view
+  |-list view
+  '-grid view
